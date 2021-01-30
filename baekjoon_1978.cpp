@@ -1,18 +1,31 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <math.h>
 
 int main()
 {
-	long long N, M, res;
-	scanf("%lld", &N);
-	scanf("%lld", &M);
+	int n;
+	int num, count = 0;
 
-	res = llabs(N - M);
-	
-	printf("%lld", res);
+	scanf("%d", &n);
 
-	return 0;
+	for (int i = 0; i < n; i++)
+	{
+		scanf("%d", &num);
+					for (int j = 2; j <= num; j++)
+		{
+			if (num == j)
+				count++;
+			if (num % j == 0)
+				break;
+		}
+	}
+		printf("%d", count);
+
+		return 0;
 }
+
+
+
+
 
 
