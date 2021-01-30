@@ -11,9 +11,10 @@ int main()
 	for (int i = 0; i < n; i++)
 	{
 		scanf("%d", &num);
-					for (int j = 2; j <= num; j++)
+		
+		for (int j = 2; j <= num; j++)
 		{
-			if (num == j)
+	 		if (num == j)
 				count++;
 			if (num % j == 0)
 				break;
