@@ -5,21 +5,21 @@ using namespace std;
 const int MAX = 100001;
 
 int N;
-bool visited[MAX]; //¹æ¹®Ã³¸®
+bool visited[MAX]; //ë°©ë¬¸ì²˜ë¦¬
 int parent[MAX]; 
 vector<int> tree[MAX];
 
 void findParent(int from)
 {
-	visited[from] = true; // ¹æ¹® Ã³¸® 
+	visited[from] = true; // ë°©ë¬¸ ì²˜ë¦¬ 
 
-	for (int i = 0; i < tree[from].size(); i++) //from³ëµå¿Í ºÙ¾îÀÖ´Â ÀÎÁ¢³ëµå ÇÏ³ª¾¿ ¹æ¹®  
+	for (int i = 0; i < tree[from].size(); i++) //fromë…¸ë“œì™€ ë¶™ì–´ìžˆëŠ” ì¸ì ‘ë…¸ë“œ í•˜ë‚˜ì”© ë°©ë¬¸  
 	{
 		int next = tree[from][i];   
-		if (visited[next] == false) // ¹æ¹® ¾ÈÇß´Ù¸é 
+		if (visited[next] == false) // ë°©ë¬¸ ì•ˆí–ˆë‹¤ë©´ 
 		{
-			parent[next] = from; // nextÀÇ ºÎ¸ð³ëµå = from
-			findParent(next); // Àç±ÍÇÔ¼ö
+			parent[next] = from; // nextì˜ ë¶€ëª¨ë…¸ë“œ = from
+			findParent(next); // ìž¬ê·€í•¨ìˆ˜
 		}
 	}
 }
