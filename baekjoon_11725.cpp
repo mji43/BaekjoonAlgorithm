@@ -6,9 +6,11 @@ const int MAX = 100001;
 
 int N;
 bool visited[MAX]; //방문처리
-int parent[MAX]; 
+int parent[MAX]; //부모 기록 
 vector<int> tree[MAX];
 
+
+//DFS
 void findParent(int from)
 {
 	visited[from] = true; // 방문 처리 
@@ -26,9 +28,9 @@ void findParent(int from)
 
 int main()
 {
-	cin >> N;
+	cin >> N; //노드의 개수 
 
-	for (int i = 0; i < N - 1; i++)
+	for (int i = 0; i < N - 1; i++) //양방향 노드 연결 
 	{
 		int node1, node2;
 		cin >> node1 >> node2;
