@@ -4,17 +4,17 @@ using namespace std;
 
 const int MAX = 101;
 
-int num; //ÄÄÇ»ÅÍÀÇ ¼ö 
-int set; //ÄÄÇ»ÅÍ ½ÖÀÇ ¼ö
-bool visited[MAX]; //¹æ¹®Ã³¸®
+int num; //ì»´í“¨í„°ì˜ ìˆ˜ 
+int set; //ì»´í“¨í„° ìŒì˜ ìˆ˜
+bool visited[MAX]; //ë°©ë¬¸ì²˜ë¦¬
 vector<int> tree[MAX];
 int cnt = 0;
 
 void dfs(int start)
-{	//°¨¿°Ã¼Å© 
+{	//ê°ì—¼ì²´í¬ 
 	visited[start] = true;
 
-	for (int i = 0; i < tree[start].size(); i++) //start³ëµå¿Í ¿¬°áµÈ ÀÎÁ¢³ëµå ¹æ¹®
+	for (int i = 0; i < tree[start].size(); i++) //startë…¸ë“œì™€ ì—°ê²°ëœ ì¸ì ‘ë…¸ë“œ ë°©ë¬¸
 	{
 		int next = tree[start][i];
 		if (!visited[next])
@@ -29,8 +29,8 @@ void dfs(int start)
 int main()
 {
 
-	cin >> num; //ÄÄÇ»ÅÍ ¼ö ¹Ş±â 
-	cin >> set; //ÄÄÇ»ÅÍ ½ÖÀÇ ¼ö ¹Ş±â 
+	cin >> num; //ì»´í“¨í„° ìˆ˜ ë°›ê¸° 
+	cin >> set; //ì»´í“¨í„° ìŒì˜ ìˆ˜ ë°›ê¸° 
 
 	for (int i = 0; i < set; i++)
 	{
@@ -38,7 +38,7 @@ int main()
 		cin >> node1 >> node2;
 
 		tree[node1].push_back(node2);
-		tree[node2].push_back(node1); // ¾ç¹æÇâ ¿¬°á 
+		tree[node2].push_back(node1); // ì–‘ë°©í–¥ ì—°ê²° 
 	}
 
 	dfs(1);
