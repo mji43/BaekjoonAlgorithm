@@ -8,7 +8,7 @@ int num; //컴퓨터의 수
 int set; //컴퓨터 쌍의 수
 bool visited[MAX]; //방문처리
 vector<int> tree[MAX];
-int cnt = 0;
+int cnt = 0; //1번 통한 감염 수
 
 void dfs(int start)
 {	//감염체크 
@@ -19,8 +19,8 @@ void dfs(int start)
 		int next = tree[start][i];
 		if (!visited[next])
 		{
-			cnt++;
 			dfs(next);
+			cnt++;
 
 		}
 	}
