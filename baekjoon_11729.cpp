@@ -31,7 +31,7 @@ int main()
 	{
 		cnt *= 2;
 	}
-	cout << cnt - 1 << '\n';
+	cout << cnt - 1 << '\n'; // cout<< (1<<n)-1<<'\n'; // 2^n-1
 	hanoi(N, 1, 2, 3);
 
 
