@@ -1,4 +1,9 @@
 #include <iostream>
+
+using namespace std;
+
+
+#include <iostream>
 #include <algorithm>
 using namespace std;
 
@@ -17,7 +22,7 @@ void hanoi(int N, int start, int mid, int end)
 
 int main()
 {
-	int N; //¿øÆÇ ¼ö 
+	int N; //ì›íŒ ìˆ˜ 
 
 	cin >> N;
 
