@@ -17,10 +17,10 @@ int main()
 {
 
 
-	int n;
+	int n; // 단어의 개수 
 	cin >> n;
 	
-	vector<string> vec(n);
+	vector<string> vec(n); //입력값 vector로 
 	for (int i = 0; i < n; i++)
 	{
 		cin >> vec[i];
@@ -30,7 +30,7 @@ int main()
 
 	for (int i = 0; i < n; i++)
 	{
-		if (i != 0 && vec[i] == vec[i - 1]) continue;
+		if (i != 0 && vec[i] == vec[i - 1]) continue; // 
 		cout << vec[i] << '\n';
 	}
 
