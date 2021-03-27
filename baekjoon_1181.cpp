@@ -8,9 +8,9 @@ using namespace std;
 bool cmp(string a, string b)
 {
 	if (a.size() == b.size())
-		return a < b;
+		return a < b;  // 길이가 같다면 사전 순으로 
 	else
-		return a.size() < b.size();
+		return a.size() < b.size(); // 길이가 짧은 것부터 
 }
 
 int main()
@@ -19,10 +19,10 @@ int main()
 
 	int n;
 	cin >> n;
+	
 	vector<string> vec(n);
 	for (int i = 0; i < n; i++)
 	{
-
 		cin >> vec[i];
 	}
 
