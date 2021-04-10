@@ -9,7 +9,7 @@ int main(void) {
 
 	cin >> arr;
 
-	sort(arr, arr + strlen(arr), greater<int>()); //³»¸²Â÷¼ø
+	sort(arr, arr + strlen(arr), greater<int>()); //ë‚´ë¦¼ì°¨ìˆœ
 	for (int i = 0; i < strlen(arr); i++) {
 		cout << arr[i];
 	}
