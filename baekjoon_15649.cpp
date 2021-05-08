@@ -4,10 +4,10 @@ using namespace std;
 
 #define MAX 8+1
 
-//Àü¿ªº¯¼ö 
-int N, M;//ÀÚ¿¬¼ö, ±æÀÌ
-int arr[MAX] = { 0, };//¼ö¿­À» ´ãÀ» ¹è¿­ 
-bool visited[MAX] = { 0, };//¼ö¸¦ ¹æ¹®Çß´Ù¸é true
+//ì „ì—­ë³€ìˆ˜ 
+int N, M;//ìì—°ìˆ˜, ê¸¸ì´
+int arr[MAX] = { 0, };//ìˆ˜ì—´ì„ ë‹´ì„ ë°°ì—´ 
+bool visited[MAX] = { 0, };//ìˆ˜ë¥¼ ë°©ë¬¸í–ˆë‹¤ë©´ true
 
 void dfs(int num) {
 	//base case
@@ -19,11 +19,11 @@ void dfs(int num) {
 		return;
 		
 	}
-
+	//ë°©ë¬¸í•˜ì§€ ì•Šì€ ìˆ˜ ì°¾ê¸° 
 	for (int i = 1; i <= N; i++) {
 		if (!visited[i]) {
 			arr[num] = i;
-			visited[i] = true;
+			visited[i] = true;//ë°©ë¬¸
 			dfs(num + 1);
 			visited[i] = false;
 		}
