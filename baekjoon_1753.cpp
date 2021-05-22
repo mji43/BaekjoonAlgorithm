@@ -1,6 +1,6 @@
-//¹éÁØ1753 ÃÖ´Ü°æ·Î 
-//´ÙÀÍ½ºÆ®¶ó_¾Ë°í¸®Áò 
-//½ÃÀÛÁ¡À» ±âÁØÀ¸·Î ÀÎÁ¢ÇÑ ³ëµåµéÀ» ¹æ¹®ÇÏ¸ç ½ÃÀÛÁ¡¿¡¼­ ÇØ´ç ³ëµå±îÁöÀÇ ÃÖ¼Ò °Å¸®¸¦ Ã£´Â ¾Ë°í¸®Áò
+//ë°±ì¤€1753 ìµœë‹¨ê²½ë¡œ 
+//ë‹¤ìµìŠ¤íŠ¸ë¼_ì•Œê³ ë¦¬ì¦˜ 
+//ì‹œì‘ì ì„ ê¸°ì¤€ìœ¼ë¡œ ì¸ì ‘í•œ ë…¸ë“œë“¤ì„ ë°©ë¬¸í•˜ë©° ì‹œì‘ì ì—ì„œ í•´ë‹¹ ë…¸ë“œê¹Œì§€ì˜ ìµœì†Œ ê±°ë¦¬ë¥¼ ì°¾ëŠ” ì•Œê³ ë¦¬ì¦˜
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -9,19 +9,19 @@
 
 using namespace std;
 
-int V,E,start; //³ëµå, °£¼± °³¼ö, ½ÃÀÛÁ¤Á¡ ¹øÈ£   
-//Àü´ŞÇÒ µ¥ÀÌÅÍ°¡ 2°³ ÀÌ»óÀÌ¸é pair·Î ¹­´Â´Ù.
-vector<pair<int, int>>graph[MAX];//cost(°Å¸®), vertex
+int V,E,start; //ë…¸ë“œ, ê°„ì„  ê°œìˆ˜, ì‹œì‘ì •ì  ë²ˆí˜¸   
+//ì „ë‹¬í•  ë°ì´í„°ê°€ 2ê°œ ì´ìƒì´ë©´ pairë¡œ ë¬¶ëŠ”ë‹¤.
+vector<pair<int, int>>graph[MAX];//cost(ê±°ë¦¬), vertex
 
 vector<int> dijkstra(int start, int vertex) {
 
-	//INF·Î ÃÊ±âÈ­µÈ vertex°³ÀÇ ¿ø¼Ò¸¦ °¡Áö´Â vector distance »ı¼º  
-	vector<int> distance(vertex, INF); //start ±âÁØ °Å¸® 
-	distance[start] = 0; //ÀÚ±â ÀÚ½ÅÇÑÅ× °¡´Â ºñ¿ë = 0 	//[star]¹øÂ° ¿ø¼Ò¸¦ Âü¼ÒÇÑ´Ù 
+	//INFë¡œ ì´ˆê¸°í™”ëœ vertexê°œì˜ ì›ì†Œë¥¼ ê°€ì§€ëŠ” vector distance ìƒì„±  
+	vector<int> distance(vertex, INF); //start ê¸°ì¤€ ê±°ë¦¬ 
+	distance[start] = 0; //ìê¸° ìì‹ í•œí…Œ ê°€ëŠ” ë¹„ìš© = 0 	//[star]ë²ˆì§¸ ì›ì†Œë¥¼ ì°¸ì†Œí•œë‹¤ 
 
 
-	//ÃÖ¼ÒÈü »ı¼º //priority_queue -> MAX_HEAP, À½¼ö·Î ¹Ù²ã ÃÖ¼Ò°ª³ª¿Àµµ·ÏÇÑ´Ù
-	//cost(°Å¸®), vertex
+	//ìµœì†Œí™ ìƒì„± //priority_queue -> MAX_HEAP, ìŒìˆ˜ë¡œ ë°”ê¿” ìµœì†Œê°’ë‚˜ì˜¤ë„ë¡í•œë‹¤
+	//cost(ê±°ë¦¬), vertex
 	priority_queue<pair<int, int>> pq;
 	pq.push(make_pair(0, start));
 
@@ -29,15 +29,17 @@ vector<int> dijkstra(int start, int vertex) {
 		pair<int, int> cur = pq.top();
 		pq.pop();
 
-		int cost = -cur.first; //- °¡ÁßÄ¡ °¡Àå Å«°Å 
+		int cost = -cur.first; //- ê°€ì¤‘ì¹˜ ê°€ì¥ í°ê±° 
 		int vertex = cur.second;
 
-		//ÃÖ¼Ò°Å¸®
+		/*
+		//ìµœì†Œê±°ë¦¬
 		if (distance[vertex] < cost) {
 			continue;
 		}
+		*/
 
-		//vertexÀÇ neighbor ÀüºÎ È®ÀÎ 
+		//vertexì˜ neighbor ì „ë¶€ í™•ì¸ 
 		for (int i = 0; i < graph[vertex].size(); i++) {
 			pair<int, int> next = graph[vertex][i];
 			int ncost = next.first;
@@ -45,7 +47,7 @@ vector<int> dijkstra(int start, int vertex) {
 
 			if (distance[nvertex] > cost + ncost) {
 				distance[nvertex] = cost + ncost;
-				//°Å¸®ºÎÈ£ À½¼öÈ­, °Å¸®°¡ ÀÛÀº ¼øÀ¸·Î ²¨³»Áöµµ·Ï ÇÑ´Ù 
+				//ê±°ë¦¬ë¶€í˜¸ ìŒìˆ˜í™”, ê±°ë¦¬ê°€ ì‘ì€ ìˆœìœ¼ë¡œ êº¼ë‚´ì§€ë„ë¡ í•œë‹¤ 
 				pq.push(make_pair(-distance[nvertex], nvertex));
 			}
 		}
@@ -58,14 +60,14 @@ int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 
-	cin >> V >> E; //³ëµå, °£¼± °³¼ö 
-	cin >> start;//½ÃÀÛ Á¤Á¡ ¹øÈ£ 
+	cin >> V >> E; //ë…¸ë“œ, ê°„ì„  ê°œìˆ˜ 
+	cin >> start;//ì‹œì‘ ì •ì  ë²ˆí˜¸ 
 
 	for (int i = 0; i < E; i++) {
 		int u, v, cost;
 		cin >> u >> v >> cost;
 
-		graph[u].push_back(make_pair(cost,v)); //¹æÇâ±×·¡ÇÁ
+		graph[u].push_back(make_pair(cost,v)); //ë°©í–¥ê·¸ë˜í”„
 	}
 	
 	vector<int> result = dijkstra(start, V+1);
