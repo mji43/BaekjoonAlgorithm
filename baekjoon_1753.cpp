@@ -29,7 +29,7 @@ vector<int> dijkstra(int start, int vertex) {
 		pair<int, int> cur = pq.top();
 		pq.pop();
 
-		int cost = -cur.first; //- 가중치 가장 큰거 
+		int cost = -cur.first; // (-가중치 가장 큰거) = 가중치 가장 작은 거
 		int vertex = cur.second;
 
 		/*
